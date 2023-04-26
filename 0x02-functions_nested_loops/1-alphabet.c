@@ -1,17 +1,16 @@
 #include "main.h"
 #include <stdio.h>
 /**
- * main - Initialising for loop with alphabet
- * Description: the alphabet, in lowercase, followed by a new line
- * Return: 0
+ * print_alphabet - print all alphabet in lowercase
 */
-int main(void)
+void print_alphabet(void)
 {
 char letters;
+
 for (letters = 'a'; letters <= 'z'; letters++)
 {
-putchar(letters);
+	_putchar(letters);
 }
-putchar('\n');
-return (0);
+_putchar('\n');
+
 }
