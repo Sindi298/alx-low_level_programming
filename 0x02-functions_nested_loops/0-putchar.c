@@ -13,7 +13,7 @@ int i;
 for (i = 0; i < MAXSTRING; i++)
 {
 putchar(str[i]);
-putchar('\n');
 }
+putchar('\n');
 return (0);
 }
