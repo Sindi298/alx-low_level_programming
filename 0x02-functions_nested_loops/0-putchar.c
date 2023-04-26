@@ -1,6 +1,6 @@
 #include "main.h"
 #include <stdio.h>
-#define MAXSTRING 80
+#define MAXSTRING 8
 /**
  * main - print _putchar
  * Description: 'prints _putchar followed by a new line'
