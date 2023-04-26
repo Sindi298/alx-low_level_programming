@@ -1,19 +1,19 @@
 #include "main.h"
+#include <stdio.h>
+#define MAXSTRING 80
 /**
- * main - Entry point
- * Description: 'prints _putchar to stdout'
- * Return: always 0
+ * main - print _putchar
+ * Description: 'prints _putchar followed by a new line'
+ * Return:  0
  */
 int main(void)
 {
-	_putchar('_');
-	_putchar('p');
-	_putchar('u');
-	_putchar('t');
-	_putchar('c');
-	_putchar('h');
-	_putchar('a');
-	_putchar('r');
-	_putchar('\n');
-	return (0);
+char str[100] = "_putchar";
+int i;
+for (i = 0; i < MAXSTRING; i++)
+{
+putchar(str[i]);
+putchar('\n');
+}
+return (0);
 }
