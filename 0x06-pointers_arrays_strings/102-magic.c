@@ -1,4 +1,9 @@
 #include <stdio.h>
+/**
+ * main(void) - print numbers integer
+ * @n: number of elements of array
+ * Return: 0
+ */
 
 int main(void)
 {
