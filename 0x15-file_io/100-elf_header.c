@@ -13,8 +13,8 @@ void print_data(unsigned char *e_ident);
 void print_version(unsigned char *e_ident);
 void print_abi(unsigned char *e_ident);
 void print_osabi(unsigned char *e_ident);
-void print_type(unsigned char *e_ident);
-void print_entry(unsigned char *e_ident);
+void print_type(unsigned int e_type, unsigned char *e_ident);
+void print_entry(unsigned long int e_entry, unsigned char *e_ident);
 void close_elf(int elf);
 
 /**
@@ -93,42 +93,44 @@ void print_class(unsigned char *e_ident)
   */
 void print_data(unsigned char *e_ident)
 {
-	printf("  Data:                            ");
+	printf("  Data:                              ");
 
 	switch (e_ident[EI_DATA])
 	{
-		case ELFDATANONE:
-			printf("none\n");
-			break;
-		case ELFDATA2LSB:
-			printf("2's complement, little endian\n");
-			break;
-		case ELFDATA2MSB:
-			printf("2's complement, big endian\n");
-			break;
-		default:
-			printf("<unknown: %x>\n", e_ident[EI_CLASS]);
+	case ELFDATANONE:
+		printf("none\n");
+		break;
+	case ELFDATA2LSB:
+		printf("2's complement, little endian\n");
+		break;
+	case ELFDATA2MSB:
+		printf("2's complement, big endian\n");
+		break;
+	default:
+		printf("<unknown: %x>\n", e_ident[EI_CLASS]);
 	}
 }
 
 /**
-  *print_version - prints the version of an ELF header
-  *@e_ident: pointer to an array containing the ELF version
-  */
+ * print_version - Prints the version of an ELF header.
+ * @e_ident: A pointer to an array containing the ELF version.
+ */
 void print_version(unsigned char *e_ident)
 {
-	printf("  Version:                        %d", e_ident[EI_VERSION]);
+	printf("  Version:                           %d",
+	       e_ident[EI_VERSION]);
 
 	switch (e_ident[EI_VERSION])
 	{
-		case EV_CURRENT:
-			printf("  (current)\n");
-			break;
-		default:
-			printf("\n");
-			break;
+	case EV_CURRENT:
+		printf(" (current)\n");
+		break;
+	default:
+		printf("\n");
+		break;
 	}
 }
+
 /**
  * print_osabi - Prints the OS/ABI of an ELF header.
  * @e_ident: A pointer to an array containing the ELF version.
